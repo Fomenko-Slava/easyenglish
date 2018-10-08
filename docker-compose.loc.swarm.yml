@@ -1,0 +1,49 @@
+version: '3.4'
+
+x-general-volumes: &general-volumes
+  - /home/fileserver/${PROJECT_NAME}/storage:/var/www/project/storage
+  - ./app:/app
+
+networks:
+  default:
+    external:
+      name: docker-proxy-overlay
+
+services:
+
+  mysql-my_shop:
+    image: mysql:5.5 #https://hub.docker.com/_/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123
+      MYSQL_DATABASE: shop
+      TZ: "Europe/Kiev"
+    volumes:
+      - /home/fileserver/${PROJECT_NAME}/db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.5.3.1-1 #https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+    environment:
+      PMA_HOST: mysql-${PROJECT_NAME}
+      PMA_USER: root
+      PMA_PASSWORD: 123123
+      VIRTUAL_HOST: pma.${PROJECT_NAME}.${ENV}
+    depends_on:
+      - mysql-${PROJECT_NAME}
+
+  nginx:
+    image: ${COMPOSE_PROJECT_NAME}-nginx:${BUILD_NUMBER}
+    env_file: .env.${ENV}
+    volumes:
+      *general-volumes
+    environment:
+      - VIRTUAL_HOST=${APP_URL}
+    #depends_on:
+    #  - php-fpm
+    hostname: ${APP_URL}
+    deploy:
+      mode: global
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s

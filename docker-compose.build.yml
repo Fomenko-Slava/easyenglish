@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+      args:
+        - ENV=${ENV}
+    image: ${COMPOSE_PROJECT_NAME}-nginx:${BUILD_NUMBER}
+    env_file: .env.${ENV}
