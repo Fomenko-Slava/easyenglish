@@ -30,3 +30,11 @@ if (isLocal) {
     gulp.task('default', gulp.series('style'));
 }
 
+/*
+* return merge(lessStream, cssStream)
+        .pipe(concat(hash+'_style.min.css'))
+		.pipe(cssmin())
+        //.pipe(gulpIf(!isProd, sourcemaps.write()))
+		.pipe(gulp.dest(files_directories[2]));
+		*/
+

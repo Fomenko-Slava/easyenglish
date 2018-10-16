@@ -1,2 +1,3 @@
 #!/bin/bash
-nohup gulp
+nohup gulp &
+nginx

@@ -7,8 +7,8 @@ export COMPOSE_FILE_DEPLOY="docker-compose.${ENV}.swarm.yml" # файл для d
 export BUILD_NUMBER=latest
 
 #docker-compose -f ${COMPOSE_FILE} config
-docker-compose build --force-rm --no-cache #будет браться указанный файл из переменной окружения
+docker-compose build --force-rm #--no-cache #будет браться указанный файл из переменной окружения
 
 #docker-compose -f ${COMPOSE_FILE_DEPLOY} config
-#docker stack deploy -c ${COMPOSE_FILE_DEPLOY} ${COMPOSE_PROJECT_NAME} # запуск проекта
+docker stack deploy -c ${COMPOSE_FILE_DEPLOY} ${COMPOSE_PROJECT_NAME} # запуск проекта
 #docker-compose -f docker-compose.loc.swarm.yml up

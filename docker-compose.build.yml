@@ -10,3 +10,9 @@ services:
         - ENV=${ENV}
     image: ${COMPOSE_PROJECT_NAME}-nginx:${BUILD_NUMBER}
     env_file: .env.${ENV}
+
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/django/Dockerfile
+    image: ${COMPOSE_PROJECT_NAME}-django:$BUILD_NUMBER
