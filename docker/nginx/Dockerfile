@@ -36,4 +36,4 @@ ENTRYPOINT ["/run.sh"]
 
 COPY ./app /app
 
-COPY ./docker/nginx/$ENV/robots.txt /var/www/project/
+COPY ./docker/nginx/$ENV/robots.txt /app

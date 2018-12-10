@@ -11,16 +11,20 @@ RUN apt-get update -y \
     #&& apt-get install -y cron
 
 # Install postgres requirements
+#RUN apt-get install -y \
+#    postgresql-server-dev-all \
+#    libgeos-dev \
+#    libgdal-dev \
+#    postgresql-client \
+#    mc
+
 RUN apt-get install -y \
-    postgresql-server-dev-all \
-    libgeos-dev \
-    libgdal-dev \
-    postgresql-client \
-    mc
+    python3-dev \
+    default-libmysqlclient-dev
 
-ENV TZ=America/Tijuana
+ENV TZ=Europe/Kiev
 
-COPY ./project /app
+COPY ./app /app
 
 COPY ./docker/django/gunicorn.sh /gunicorn.sh
 COPY ./docker/django/entrypoint.sh /django/entrypoint.sh
@@ -31,6 +35,8 @@ RUN sed -i 's/\r//' /django/entrypoint.sh \
     && chmod +x /gunicorn.sh
 
 WORKDIR /app
+
+#RUN django-admin startproject customapp .
 
 EXPOSE 8000 5555 5000
 

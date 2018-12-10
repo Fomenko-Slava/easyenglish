@@ -11,34 +11,34 @@ networks:
 
 services:
 
-  #mysql-my_shop:
-  #  image: mysql:5.5 #https://hub.docker.com/_/mysql/
-  #  environment:
-  #    MYSQL_ROOT_PASSWORD: 123123
-  #    MYSQL_DATABASE: shop
-  #    TZ: "Europe/Kiev"
-  #  volumes:
-  #    - /home/fileserver/${PROJECT_NAME}/db:/var/lib/mysql
-#
-  #phpmyadmin:
-  #  image: phpmyadmin/phpmyadmin:4.5.3.1-1 #https://hub.docker.com/r/phpmyadmin/phpmyadmin/
-  #  environment:
-  #    PMA_HOST: mysql-${PROJECT_NAME}
-  #    PMA_USER: root
-  #    PMA_PASSWORD: 123123
-  #    VIRTUAL_HOST: pma.${PROJECT_NAME}.${ENV}
-  #  depends_on:
-  #    - mysql-${PROJECT_NAME}
+  shop-mysql:
+    image: mysql:5.5 #https://hub.docker.com/_/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: 123123
+      MYSQL_DATABASE: shop
+      TZ: "Europe/Kiev"
+    volumes:
+      - /home/fileserver/${PROJECT_NAME}/db:/var/lib/mysql
 
-  nginx:
+  shop-phpmyadmin:
+    image: phpmyadmin/phpmyadmin:4.5.3.1-1 #https://hub.docker.com/r/phpmyadmin/phpmyadmin/
+    environment:
+      PMA_HOST: shop-mysql
+      PMA_USER: root
+      PMA_PASSWORD: 123123
+      VIRTUAL_HOST: pma.${PROJECT_NAME}.${ENV}
+    depends_on:
+      - shop-mysql
+
+  shop-nginx:
     image: ${COMPOSE_PROJECT_NAME}-nginx:${BUILD_NUMBER}
     env_file: .env.${ENV}
     volumes:
       *general-volumes
     environment:
       - VIRTUAL_HOST=${APP_URL}
-    #depends_on:
-    #  - php-fpm
+    depends_on:
+      - shop-django-server
     hostname: ${APP_URL}
     deploy:
       mode: global
@@ -47,3 +47,35 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
+
+  shop-django-server:
+    image: ${COMPOSE_PROJECT_NAME}-django:$BUILD_NUMBER
+    env_file: .env.${ENV}
+    command: python manage.py runserver 0.0.0.0:8000 --insecure
+    environment:
+      - VIRTUAL_HOST=${DJANGO_VIRTUAL_HOST}
+      - VIRTUAL_PORT=${DJANGO_VIRTUAL_PORT}
+      #- SYNC_PERMISSIONS=1
+      - RUN_MIGRATE=1
+      - RUN_COLLECTSTATIC=1
+    volumes:
+      - ./app:/app
+      - /home/fileserver/${PROJECT_NAME}/media/cache:/app/media/cache
+      #- /home/fileserver/${PROJECT_NAME}/logs:/app/logs/
+      #- /home/fileserver/${PROJECT_NAME}/media/img:/app/media/img # shared folder for django servie
+      #- /home/fileserver/${PROJECT_NAME}/media/css/front:/app/media/css/front # shared folder for django servie
+      #- /home/fileserver/${PROJECT_NAME}/media/files:/app/media/files
+      #- /home/fileserver/${PROJECT_NAME}/static:/app/static
+    depends_on:
+      - shop-mysql
+    deploy:
+      replicas: 3
+      mode: replicated
+      update_config:
+        monitor: 20s
+        parallelism: 1
+        delay: 20s
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
