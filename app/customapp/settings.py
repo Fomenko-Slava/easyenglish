@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'core',
+    'words'
 ]
 
 MIDDLEWARE = [
@@ -78,10 +80,12 @@ DATABASES = {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'shop',
+        'NAME': 'english',
         'USER': 'root',
         'PASSWORD': '123123',
         'HOST': 'shop-mysql',
+        'CHARSET': 'utf8',
+        'COLLATION': 'utf8_general_ci',
     }
 }
 
@@ -110,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Kiev'
 
 USE_I18N = True
 
