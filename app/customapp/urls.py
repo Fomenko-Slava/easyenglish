@@ -22,5 +22,5 @@ from .views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^words/', include('words.urls')),
-    url(r'^$', test),
+    url(r'^$', test, name='word_list'),
 ]

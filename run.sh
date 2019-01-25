@@ -20,6 +20,7 @@ docker-compose -f ${COMPOSE_FILE_DEPLOY} stop shop-django-server &&
 #docker-compose -f ${COMPOSE_FILE} config
 #docker-compose build --force-rm #--no-cache #будет браться указанный файл из переменной окружения
 #docker-compose -f docker-compose.loc.swarm.yml up -d
+#docker-compose -f docker-compose.loc.swarm.yml stop
 
 
 #docker-compose -f ${COMPOSE_FILE_DEPLOY} config

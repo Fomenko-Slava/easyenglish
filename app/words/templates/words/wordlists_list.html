@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if general_lists %}
+    Общие списки слов:
+    <ul>
+    {% for word_list in general_lists %}
+        <li><a href="{% url 'word_list' word_list.id %}">{{ word_list.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Ещё нет ни одного списка слов</p>
+{% endif %}
+
+{% if user_lists %}
+    Ваши списки:
+    <ul>
+    {% for word_list in user_lists %}
+        <li><a href="{% url 'word_list' word_list.id %}">{{ word_list.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>

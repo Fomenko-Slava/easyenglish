@@ -2,6 +2,7 @@ version: '3.4'
 
 x-general-volumes: &general-volumes
   - /home/fileserver/${PROJECT_NAME}/storage:/storage
+  - /home/fileserver/${PROJECT_NAME}/uploads:/app/uploads
   - ./app:/app
 
 networks:
@@ -59,8 +60,9 @@ services:
       - RUN_MIGRATE=1
       - RUN_COLLECTSTATIC=1
     volumes:
-      - ./app:/app
-      - /home/fileserver/${PROJECT_NAME}/media/cache:/app/media/cache
+      #- ./app:/app
+      #- /home/fileserver/${PROJECT_NAME}/media/cache:/app/media/cache
+      *general-volumes
       #- /home/fileserver/${PROJECT_NAME}/logs:/app/logs/
       #- /home/fileserver/${PROJECT_NAME}/media/img:/app/media/img # shared folder for django servie
       #- /home/fileserver/${PROJECT_NAME}/media/css/front:/app/media/css/front # shared folder for django servie
