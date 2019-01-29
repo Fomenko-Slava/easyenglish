@@ -5,12 +5,29 @@
     <title>Title</title>
 </head>
 <body>
+<b>Нижний регистр:</b> <br/>
+{{test|lower}}
+<br/>
+<br/>
+<b>Обрезка слов:</b> <br/>
+{{test|truncatewords:3}}
+<br/>
+<br/>
+<b>Вырезать пробел:</b> <br/>
+{{ test|cut:" " }}
+<br/><br/>
+{{test|pprint}}
+
+<br/>
+<br/>
+<br/>
+<br/>
 
 {% if general_lists %}
     Общие списки слов:
     <ul>
     {% for word_list in general_lists %}
-        <li><a href="{% url 'word_list' word_list.id %}">{{ word_list.title }}</a></li>
+        <li><a href="{% url 'words:word_list' word_list.id %}">{{ word_list.title }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
@@ -21,7 +38,7 @@
     Ваши списки:
     <ul>
     {% for word_list in user_lists %}
-        <li><a href="{% url 'word_list' word_list.id %}">{{ word_list.title }}</a></li>
+        <li><a href="{% url 'words:word_list' word_list.id %}">{{ word_list.title }}</a></li>
     {% endfor %}
     </ul>
 {% endif %}

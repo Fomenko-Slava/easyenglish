@@ -36,6 +36,6 @@ class WordListVal(models.Model):
     # Посмотреть это приложение для сортировки полей
     #https://github.com/bfirsh/django-ordered-model
     def __str__(self):
-        return 'sort:{sort} list:{b} word:{a} '.format(
-            sort=self.sort, a=self.word.id, b=self.word_list.id
+        return 'sort:{0} list:{1} word:{2} '.format(
+            self.sort, self.word.id, self.word_list.id
         )

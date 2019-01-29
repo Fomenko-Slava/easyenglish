@@ -18,6 +18,8 @@ def index(request):
     if request.user.is_authenticated:
         context['user_lists'] = WordList.objects.filter(user_id=request.user.id)
 
+    context['test'] = 'шЛа Саша по Шосе и соСалА СушкУ'
+
     return render(request, 'words/wordlists_list.html', context)
 
 

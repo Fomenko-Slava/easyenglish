@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-    {{ word_list }}
+    {{ word_list.title }} {{word_list.created_at1}}
 
     <ul>
     {% for choice in word_list.choice_set.all %}

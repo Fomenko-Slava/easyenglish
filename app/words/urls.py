@@ -2,6 +2,9 @@ from django.conf.urls import url
 
 from . import views
 
+# для использования в урлах, чтобы были уникальны words:word_list
+app_name = 'words'
+
 urlpatterns = [
     # ex: /words/
     url(r'^$', views.index, name='index'),
