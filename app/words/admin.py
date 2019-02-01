@@ -9,6 +9,8 @@ class WordsInlineAdmin(admin.TabularInline):
 
 @admin.register(WordList)
 class WordListAdmin(admin.ModelAdmin):
+    list_display = ('id', 'title', 'user')
+    list_editable = ('user',)
     fieldsets = [
         ('-Список-', {'fields':['title', 'user']})
     ]

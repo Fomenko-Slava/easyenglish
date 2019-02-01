@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #'rest_framework',  # utilities for rest apis
+    #'rest_framework.authtoken',  # token authentication
+    #'rest_auth',
+    #'rest_auth.registration',
     'core',
     'words'
 ]
@@ -107,6 +111,45 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Django Rest Framework
+#REST_FRAMEWORK = {
+#    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+#    'PAGE_SIZE': int(os.getenv('DJANGO_PAGINATION_LIMIT', 100)),
+#    'DATETIME_FORMAT': '%Y-%m-%dT%I:%M:%S%z',
+#    'DEFAULT_RENDERER_CLASSES': (
+#        'rest_framework.renderers.JSONRenderer',
+#        'rest_framework.renderers.BrowsableAPIRenderer',
+#    ),
+#    'DEFAULT_PERMISSION_CLASSES': [
+#        'rest_framework.permissions.IsAuthenticated',
+#        'core.permissions.ModelPermissions',
+#    ],
+#    'DEFAULT_AUTHENTICATION_CLASSES': (
+#        'rest_framework.authentication.SessionAuthentication',
+#        'rest_framework.authentication.TokenAuthentication',
+#    ),
+#    'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',),
+#    'EXCEPTION_HANDLER': 'core.custom_exception.custom_exception_handler',
+#    'NON_FIELD_ERRORS_KEY': 'non_field_errors',
+#}
+#
+#SWAGGER_SETTINGS = {
+#    'USE_SESSION_AUTH': True,
+#    "LOGIN_URL": "/",
+#    "LOGOUT_URL": "/",
+#    "APIS_SORTER": "alpha",
+#    "VALIDATOR_URL": None,
+#    "SHOW_REQUEST_HEADERS": True,
+#    'SECURITY_DEFINITIONS': {
+#        'api_key': {
+#            'type': 'apiKey',
+#            'description': 'Personal API Key authorization',
+#            'name': 'Authorization',
+#            'in': 'header',
+#        }
+#    },
+#}
 
 
 # Internationalization

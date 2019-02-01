@@ -9,13 +9,16 @@ export BUILD_NUMBER=latest
 export DJANGO_VIRTUAL_HOST="shop.django.loc"
 export DJANGO_VIRTUAL_PORT=8000
 
-#docker-compose -f COMPOSE_FILE_DEPLOY up -d
+docker-compose build --force-rm #--no-cache
+docker-compose -f ${COMPOSE_FILE_DEPLOY} up
+#docker-compose -f ${COMPOSE_FILE_DEPLOY} ps
 
 # запуск для разработки
-docker-compose -f ${COMPOSE_FILE_DEPLOY} stop shop-django-server &&
-    docker-compose -f ${COMPOSE_FILE_DEPLOY} up -d &&
-    docker-compose -f ${COMPOSE_FILE_DEPLOY} rm -f shop-django-server &&
-    docker-compose -f ${COMPOSE_FILE_DEPLOY} up shop-django-server
+#docker-compose -f ${COMPOSE_FILE_DEPLOY} stop shop-django-server &&
+#    docker-compose -f ${COMPOSE_FILE_DEPLOY} up -d &&
+#    docker-compose -f ${COMPOSE_FILE_DEPLOY} rm -f shop-django-server &&
+#    docker-compose -f ${COMPOSE_FILE_DEPLOY} up shop-django-server
+#
 
 #docker-compose -f ${COMPOSE_FILE} config
 #docker-compose build --force-rm #--no-cache #будет браться указанный файл из переменной окружения

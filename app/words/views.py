@@ -6,11 +6,24 @@ from core.utils_helper import prn, analyze
 
 from .models import *
 
-# пример с OR
-#user_lists = WordList.objects.filter(Q(user=None) | Q(user_id=request.user.id))
 
-@analyze
+# пример с OR
+# user_lists = WordList.objects.filter(Q(user=None) | Q(user_id=request.user.id))
+def newfunc(n):
+    def myfunc(x):
+        prn(x)
+        return x + n
+    return myfunc
+
+
+
+#@analyze
 def index(request):
+
+    #new = newfunc(100)  # new - это функция
+    #prn(new)
+    #prn(new(200))
+
     """Главная страница выводятся все общие списки и списки пользователя"""
 
     context = {'general_lists': WordList.objects.filter(user=None)}
@@ -19,6 +32,8 @@ def index(request):
         context['user_lists'] = WordList.objects.filter(user_id=request.user.id)
 
     context['test'] = 'шЛа Саша по Шосе и соСалА СушкУ'
+
+    context['borsh_lists'] = WordList.objects.filter(user__username='slav')
 
     return render(request, 'words/wordlists_list.html', context)
 

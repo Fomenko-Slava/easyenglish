@@ -23,6 +23,16 @@
 <br/>
 <br/>
 
+{% if borsh_lists %}
+    Список борща
+    <ul>
+    {% for word_list in borsh_lists %}
+        <li><a href="{% url 'words:word_list' word_list.id %}">{{ word_list.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+
 {% if general_lists %}
     Общие списки слов:
     <ul>
