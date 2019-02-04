@@ -19,3 +19,7 @@ Start project (localhost)
     выдаёт ошибку, по этому просто заходим в контейнер
     $ docker/bash.sh
     $ python manage.py createsuperuser - создаём админа
+    
+
+Иконки
+https://fontawesome.com/icons
