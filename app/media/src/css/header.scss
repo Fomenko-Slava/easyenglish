@@ -1,18 +1,79 @@
 .top-menu-line {
   width: 100%;
-  color: #ffffff;
+  color: $icon_link_color;
   border-bottom: 1px solid #148EA1;
   /*text-shadow: 1px 0 3px #000000;*/
 
   .row{
     a{
-      padding: 9px;
+      padding: 7px;
       text-decoration: none;
-      color: #ffffff;
+      color: #fff;
+      display: inline-block;
+
       &:hover{
         background-color: #138496
       }
     }
+  }
+}
 
+.nav_menu_line{
+  background-color: $nav_menu_bg;
+  nav.navbar{
+    background-color: $nav_menu_bg;
+    padding: 5px 0;
+  }
+  .navbar-toggler{
+    border: none;
+    color: $icon_link_color;
+    font-size: 1.5rem;
+  }
+  .navbar-brand{
+    padding: 0;
+    color: $icon_link_color;
+    font-size: 1.5rem;
+    margin: 0;
+    display: block;
+    width: 25%;
+    text-align: center;
+    border-left: 1px solid wheat;
+    a{
+      color: $icon_link_color;
+    }
+  }
+  .menu-division{
+    border-left: 1px solid wheat;
+    width: 1px;
+    height: 38px;
+  }
+}
+
+.header-info{
+  background: url("#{$img_path}balloons-1.jpg") no-repeat transparent center top;
+  background-size: cover;
+  height: 280px;
+
+  .phones{
+    float: right;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #e9f8fa;
+    border-radius: 5px;
+    box-shadow: 0 0.25rem 0.125rem 0 rgba(0,0,0,0.1);
+
+    .phone-icon{
+      color: #22b8cf;
+      font-size: 2.5rem;
+      background-color: #ffffff;
+      border-radius: 5px 0 0 5px;
+    }
+    a{
+      color: rgba(0,0,0,0.7);
+      text-decoration: none;
+      span{
+        font-size: 1rem;
+      }
+    }
   }
 }

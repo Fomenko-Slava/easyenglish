@@ -12,46 +12,140 @@
     <link rel="stylesheet" href="media/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="media/css/style.css"/>
 
-
     <title>China in UA</title>
+    <script>
+      var app = {};
+      app.CUR_PAGE = '';
+    </script>
   </head>
   <body>
 
-    <header>
+  <div class="top-menu-line bg-info d-none d-sm-block">
+    <div class="container">
+      <div class="row mx-0">
+        <div class="mr-auto">
+          <a href="/shipping">Доставка и оплата</a>
+          <a href="/contacts">Контакты</a>
+        </div>
 
-      <div class="top-menu-line bg-info">
-        <div class="container">
-          <div class="row">
-            <div class="mr-auto py-1 d-none d-sm-block">
-                <a href="/shipping">Доставка и оплата</a>
-                <a href="/contacts">Контакты</a>
-            </div>
+        <div class="mr-auto mr-sm-0">
+          <a href="#" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" target="_blank">
+            <i class="fab fa-facebook"></i>
+          </a>
+        </div>
 
-            <div class="mr-auto mr-sm-0 py-1">
-              <a href="#" target="_blank">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" target="_blank">
-                <i class="fab fa-facebook"></i>
-              </a>
-            </div>
+        <div>
+          <a href="/cart">
+            <i class="fas fa-shopping-cart"></i>
+            Корзина пуста
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-            <div class="py-1">
-              <a href="/cart">
-                <i class="fas fa-shopping-cart"></i>
-                Корзина пуста
-              </a>
-            </div>
+  <div class="header-info">
+    <div class="container pt-5">
+      <img src="/media/img/bubble-party-logo.png" alt="bubble-party"/>
+
+      <div class="phones d-none d-sm-block">
+        <div class="d-flex flex-row align-items-center">
+          <div class="p-3 phone-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="px-3">
+            <a href="tel:+380950212196">
+              <span>+38</span> (095) 021-21-96
+            </a>
+            <br/>
+            <a href="tel:+380950212196">
+              <span>+38</span> (095) 021-21-96
+            </a>
           </div>
         </div>
       </div>
 
+    </div>
+
+  </div>
+
+  <div class="nav_menu_line sticky-top">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <button class="navbar-toggler" type="button" aria-expanded="false"
+                data-toggle="slide-collapse"
+                data-target="#collapsed_menu"
+                aria-controls="navbarSupportedContent">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="navbar-brand d-sm-none">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="navbar-brand d-sm-none">
+            <i class="fas fa-phone"></i>
+        </div>
+
+        <div class="navbar-brand d-sm-none">
+          <a href="/cart">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="collapsed_menu">
+          <ul class="navbar-nav mr-auto">
+            <!--<li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>-->
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Латексные шары
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Шары без рисунка</a>
+                <a class="dropdown-item" href="#">Сердца</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Шары с рисунком</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Фольгированные шары
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Без рисунка</a>
+                <a class="dropdown-item" href="#">Цифры</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Фигуры</a>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
 
 
-    </header>
 
     <div class="container">
       <h1>ТЕЛО МАГАЗИНА</h1>
+      1<br><br><br><br><br><br><br><br><br><br><br><br>
+      2<br><br><br><br><br><br><br><br><br><br><br><br>
+      3<br><br><br><br><br><br><br><br><br><br><br><br>
+      4<br><br><br><br><br><br><br><br><br><br><br><br>
+      5<br><br><br><br><br><br><br><br><br><br><br><br>
+      6<br><br><br><br><br><br><br><br><br><br><br><br>
+      7<br><br><br><br><br><br><br><br><br><br><br><br>
+      8<br><br><br><br><br><br><br><br><br><br><br><br>
+      9<br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
 
@@ -64,5 +158,6 @@
     <script src="media/js/jquery-3.2.1.slim.min.js"></script>
     <script src="media/js/popper.min.js"></script>
     <script src="media/bootstrap/js/bootstrap.min.js"></script>
+    <script src="media/js/scripts.js"></script>
   </body>
 </html>

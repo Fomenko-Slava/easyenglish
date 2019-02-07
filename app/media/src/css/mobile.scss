@@ -1,0 +1,27 @@
+@media (max-width: 576px) {
+  .header-info{
+    height: 200px;
+    text-align: center;
+    background-size: auto;
+  }
+
+  .nav_menu_line{
+    nav.navbar{
+      justify-content:space-around;
+
+      .navbar-toggler{
+        width: 25%;
+      }
+    }
+
+    #collapsed_menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 280px; /*example + never use min-width with this solution */
+      height: 100%;
+    }
+  }
+
+}
