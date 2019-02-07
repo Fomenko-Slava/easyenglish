@@ -14,13 +14,34 @@
       }
     }
 
+    .close_left_sidebar{
+      font-size: 1.2rem;
+      color: $icon_link_color;
+      position: absolute;
+      right: 0px;
+      top: 10px;
+      z-index: 1;
+      background-color: #5cbdcd;
+      &:hover{
+        background-color: white;
+        color: #17a2b8;
+      }
+      i{
+        margin: 13px;
+      }
+    }
+
     #collapsed_menu {
       position: fixed;
+      display: block;
       top: 0;
-      left: 0;
       z-index: 1;
+      left: -280px;
       width: 280px; /*example + never use min-width with this solution */
       height: 100%;
+      background-color: #17a2b8;
+      border-right: 1px solid #148EA1;
+      padding: 15px;
     }
   }
 

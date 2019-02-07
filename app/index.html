@@ -19,7 +19,8 @@
     </script>
   </head>
   <body>
-
+  <div id="overlay_bg" class="overlay"></div>
+  <div class="wrapper">
   <div class="top-menu-line bg-info d-none d-sm-block">
     <div class="container">
       <div class="row mx-0">
@@ -74,7 +75,7 @@
 
   <div class="nav_menu_line sticky-top">
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-sm navbar-dark">
 
         <button class="navbar-toggler" type="button" aria-expanded="false"
                 data-toggle="slide-collapse"
@@ -98,16 +99,20 @@
         </div>
 
         <div class="collapse navbar-collapse" id="collapsed_menu">
+          <div id="close_left_sidebar" class="d-sm-none close_left_sidebar">
+            <i class="fas fa-arrow-left "></i>
+          </div>
+
           <ul class="navbar-nav mr-auto">
             <!--<li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>-->
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Латексные шары
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <a class="dropdown-item" href="#">Шары без рисунка</a>
                 <a class="dropdown-item" href="#">Сердца</a>
                 <div class="dropdown-divider"></div>
@@ -116,10 +121,46 @@
             </li>
 
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Фольгированные шары
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                <a class="dropdown-item" href="#">Без рисунка</a>
+                <a class="dropdown-item" href="#">Цифры</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Фигуры</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Фольгированные шары
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                <a class="dropdown-item" href="#">Без рисунка</a>
+                <a class="dropdown-item" href="#">Цифры</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Фигуры</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Фольгированные шары
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown4">
+                <a class="dropdown-item" href="#">Без рисунка</a>
+                <a class="dropdown-item" href="#">Цифры</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Фигуры</a>
+              </div>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown5" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Фольгированные шары
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown5">
                 <a class="dropdown-item" href="#">Без рисунка</a>
                 <a class="dropdown-item" href="#">Цифры</a>
                 <div class="dropdown-divider"></div>
@@ -152,10 +193,11 @@
     <footer class="footer container">
       <h1>ФУТЕР МАГАЗИНА</h1>
     </footer>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="media/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="media/js/jquery-3.3.1.min.js"></script>
     <script src="media/js/popper.min.js"></script>
     <script src="media/bootstrap/js/bootstrap.min.js"></script>
     <script src="media/js/scripts.js"></script>
