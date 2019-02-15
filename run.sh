@@ -11,7 +11,7 @@ export DJANGO_VIRTUAL_PORT=8000
 
 #docker-compose build --force-rm #--no-cache
 #docker-compose -f ${COMPOSE_FILE_DEPLOY} up
-#docker-compose -f ${COMPOSE_FILE_DEPLOY} ps
+#docker-compose -f ${COMPOSE_FILE_DEPLOY} down
 
 # запуск для разработки
 docker-compose -f ${COMPOSE_FILE_DEPLOY} stop shop-django-server &&

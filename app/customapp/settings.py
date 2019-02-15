@@ -24,6 +24,7 @@ SECRET_KEY = 'eylc9a1am!z#@una!$+t&$azrj5x+v3a(#hg!(i1hx2ii8=1z5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DEBUG_TOOLBAR = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -37,7 +38,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'rest_framework',  # utilities for rest apis
+    'django.contrib.sites',
+
+    #
+    #'corsheaders'
+    'rest_framework',  # utilities for rest apis
+    'rest_framework_swagger',
+    'django_filters',
     #'rest_framework.authtoken',  # token authentication
     #'rest_auth',
     #'rest_auth.registration',
@@ -54,6 +61,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+if DEBUG_TOOLBAR:
+    INSTALLED_APPS += ['debug_toolbar',]
+    MIDDLEWARE += ['debug_toolbar.middleware.DebugToolbarMiddleware', ]
 
 ROOT_URLCONF = 'customapp.urls'
 
@@ -180,3 +191,34 @@ AUTH_PASSWORD_VALIDATORS = [
        }
    },
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 5
+}
+
+def show_toolbar(request):
+    return True
+
+
+# DEBUG_TOOLBAR_CONFIG
+DEBUG_TOOLBAR_CONFIG = {
+    'INTERCEPT_REDIRECTS': False,
+    "SHOW_TOOLBAR_CALLBACK": show_toolbar,
+}
+
+DEBUG_TOOLBAR_PANELS = (
+    # Defaults
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+)

@@ -19,8 +19,8 @@ RUN apt-get update -y \
 #    mc
 
 RUN apt-get install -y \
-    python3-dev \
-    default-libmysqlclient-dev
+    python3-dev
+    #default-libmysqlclient-dev # Убрал вроде как не нужно
 
 ENV TZ=Europe/Kiev
 

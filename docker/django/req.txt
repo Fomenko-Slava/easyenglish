@@ -12,7 +12,8 @@ django-model-utils==3.0
 djangorestframework==3.7.1
 #django-phonenumber-field==1.0.0
 #Markdown==2.6.8
-#django-filter==1.0.4
+django-filter==1.0.4
+
 
 # Rest Social Auth
 #django-rest-auth==0.9.1
@@ -22,8 +23,11 @@ djangorestframework==3.7.1
 #django-push-notifications==1.5.0
 
 # mysql
-pymysql==0.9.3
-mysqlclient==1.3.14
+#pymysql==0.9.3 # вроде как не нужно
+# не работает sql debug
+#mysqlclient==1.3.14
+
+mysqlclient==1.3.12
 
 # Time zones support
 pytz==2017.2
@@ -63,7 +67,7 @@ django-secure==1.0.1
 whitenoise==3.2.2
 
 # Api Interface
-#django-rest-swagger==2.1.2
+django-rest-swagger==2.1.2
 
 # Cross domain requests
 django-cors-headers==2.4.0
@@ -121,6 +125,10 @@ cached-property==1.3.1
 active-campaign-python==0.9.0
 
 django-environ==0.4.4
+
+#Debug toolbar
+django-debug-toolbar==1.9.1
+django-debug-toolbar-force
 
 #googlemaps==2.5.1
 

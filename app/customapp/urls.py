@@ -17,11 +17,27 @@ Including another URLconf
 
 from django.conf.urls import url, include
 from django.contrib import admin
+
+from customapp import settings
 from .views import *
 
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Swagger API')
+
 urlpatterns = [
+    url(r'^docs/', schema_view),
+    #url(r'^docs/', include('rest_framework_swagger.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^words/', include('words.urls')),
     url(r'^training/', include('training.urls')),
     url(r'^$', test, name='word_list'),
+    url(r'^api-auth/', include('rest_framework.urls'))
 ]
+
+if settings.DEBUG_TOOLBAR:
+    import debug_toolbar
+
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    ]

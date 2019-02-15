@@ -1,11 +1,17 @@
-from django.conf.urls import url
+#from sys import path
+from django.conf.urls import url, include
+from rest_framework import routers
 
 from . import views
 
 # для использования в урлах, чтобы были уникальны words:word_list
 app_name = 'words'
 
+router = routers.DefaultRouter()
+router.register(r'words', views.WordView)
+
 urlpatterns = [
+    url('api/', include(router.urls)),
     # ex: /words/
     url(r'^$', views.index, name='index'),
     # ex: /words/5/
